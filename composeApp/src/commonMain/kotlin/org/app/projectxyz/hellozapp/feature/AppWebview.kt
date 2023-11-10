@@ -1,4 +1,4 @@
-package org.app.projectxyz.hellozapp
+package org.app.projectxyz.hellozapp.feature
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
