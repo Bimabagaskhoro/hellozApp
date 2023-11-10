@@ -25,6 +25,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -37,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import org.app.projectxyz.hellozapp.theme.AppTheme
 import org.app.projectxyz.hellozapp.theme.LocalThemeIsDark
 import org.app.projectxyz.hellozapp.uicomponent.dialog.AdaptiveAlertDialog
+import org.app.projectxyz.hellozapp.uicomponent.webview.WebView
+import org.app.projectxyz.hellozapp.uicomponent.webview.rememberWebViewState
 
 @Composable
 internal fun App() = AppTheme {
