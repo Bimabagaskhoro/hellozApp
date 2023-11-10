@@ -36,12 +36,14 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import org.app.projectxyz.hellozapp.theme.AppTheme
 import org.app.projectxyz.hellozapp.theme.LocalThemeIsDark
+import org.app.projectxyz.hellozapp.uicomponent.dialog.AdaptiveAlertDialog
 
 @Composable
 internal fun App() = AppTheme {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisibility by remember { mutableStateOf(false) }
+    var showDialog by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.fillMaxSize().windowInsetsPadding(WindowInsets.safeDrawing)) {
 
@@ -88,24 +90,39 @@ internal fun App() = AppTheme {
             ),
             trailingIcon = {
                 IconButton(onClick = { passwordVisibility = !passwordVisibility }) {
-                    val imageVector = if (passwordVisibility) Icons.Default.Close else Icons.Default.Edit
-                    Icon(imageVector, contentDescription = if (passwordVisibility) "Hide password" else "Show password")
+                    val imageVector =
+                        if (passwordVisibility) Icons.Default.Close else Icons.Default.Edit
+                    Icon(
+                        imageVector,
+                        contentDescription = if (passwordVisibility) "Hide password" else "Show password"
+                    )
                 }
             }
         )
 
         Button(
-            onClick = { /* Handle login logic here */ },
+            onClick = { showDialog = true },
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
             Text("Login")
         }
 
         TextButton(
-            onClick = { openUrl("https://github.com/terrakok") },
+            onClick = { openUrl("https://github.com/bimabagaskhoro") },
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
             Text("Open github")
+        }
+
+        if (showDialog) {
+            AdaptiveAlertDialog(
+                onConfirm = { openUrl("https://github.com/bimabagaskhoro") },
+                onDismiss = { showDialog = false },
+                confirmText = "Ok",
+                dismissText = "Cancel",
+                title = "Alert Dialog",
+                text = "This is a native alert dialog from Calf",
+            )
         }
     }
 }

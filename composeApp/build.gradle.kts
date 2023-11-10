@@ -97,6 +97,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.3"
     }
+    packagingOptions {
+        exclude("META-INF/versions/9/previous-compilation-data.bin")
+    }
 }
 
 
